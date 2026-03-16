@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 2 — Sprout</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--leaf:#4caf50;--leaf-dark:#2e7d32;--tangerine:#ff8a65;--sunshine:#ffd54f;
+--sky:#e3f2fd;--cream:#fffdf7;--bark:#3e2723;--sage:#e8f5e9;
+}
+body{background:var(--cream);font-family:'Nunito',sans-serif;color:var(--bark)}
+.newsletter{max-width:680px;margin:0 auto}
+
+/* Header */
+.header{background:var(--leaf);padding:36px 36px 48px;border-radius:0 0 40px 40px;text-align:center;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-40px;left:-40px;width:180px;height:180px;background:rgba(255,255,255,0.06);border-radius:50%}
+.header::after{content:'';position:absolute;bottom:-60px;right:-30px;width:200px;height:200px;background:rgba(255,255,255,0.04);border-radius:50%}
+.header-badge{display:inline-block;background:rgba(255,255,255,0.2);border-radius:20px;padding:6px 16px;font-size:11px;font-weight:600;color:#fff;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.header h1{font-family:'Fredoka',sans-serif;font-size:44px;color:#fff;font-weight:700;margin-bottom:6px;position:relative;z-index:1}
+.header h1 .emoji{font-size:36px;vertical-align:middle}
+.header p{color:rgba(255,255,255,0.85);font-size:14px;font-weight:300;position:relative;z-index:1}
+.wave{display:block;margin-top:-1px}
+
+/* Quick Links Bar */
+.quick-links{display:flex;justify-content:center;gap:8px;padding:20px 24px;flex-wrap:wrap}
+.ql{background:var(--sage);border-radius:20px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--leaf-dark);display:flex;align-items:center;gap:4px}
+
+/* Featured */
+.featured{margin:8px 24px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.feat-img{height:200px;background:linear-gradient(135deg,var(--leaf),var(--leaf-dark));display:flex;align-items:center;justify-content:center;font-size:72px;position:relative}
+.feat-badge{position:absolute;top:16px;left:16px;background:var(--tangerine);color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:12px;letter-spacing:1px;text-transform:uppercase}
+.feat-body{padding:24px 28px}
+.feat-body h2{font-family:'Fredoka',sans-serif;font-size:24px;color:var(--bark);margin-bottom:6px;line-height:1.3}
+.feat-meta{font-size:12px;color:#999;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.feat-meta .dot{width:4px;height:4px;background:#ccc;border-radius:50%}
+.feat-body p{font-size:14px;line-height:1.7;color:#666}
+.feat-cta{display:inline-block;margin-top:16px;background:var(--leaf);color:#fff;padding:10px 24px;border-radius:24px;text-decoration:none;font-size:13px;font-weight:600;transition:transform 0.2s}
+
+/* Cards Grid */
+.cards{padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.05);transition:transform 0.2s}
+.card-icon{height:100px;display:flex;align-items:center;justify-content:center;font-size:40px}
+.card:nth-child(1) .card-icon{background:var(--sage)}
+.card:nth-child(2) .card-icon{background:#fff3e0}
+.card:nth-child(3) .card-icon{background:#fce4ec}
+.card:nth-child(4) .card-icon{background:var(--sky)}
+.card-body{padding:16px 18px}
+.card-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.card:nth-child(1) .card-cat{color:var(--leaf)}
+.card:nth-child(2) .card-cat{color:var(--tangerine)}
+.card:nth-child(3) .card-cat{color:#e91e63}
+.card:nth-child(4) .card-cat{color:#1e88e5}
+.card-body h3{font-family:'Fredoka',sans-serif;font-size:16px;margin-bottom:6px;line-height:1.3;color:var(--bark)}
+.card-body p{font-size:12px;line-height:1.6;color:#888}
+
+/* Fun Fact Banner */
+.fun-fact{margin:8px 24px;background:var(--sunshine);border-radius:16px;padding:24px 28px;display:flex;align-items:center;gap:16px}
+.ff-emoji{font-size:40px;flex-shrink:0}
+.ff-text{font-size:14px;line-height:1.6;color:var(--bark)}
+.ff-text strong{font-family:'Fredoka',sans-serif;display:block;margin-bottom:2px}
+
+/* List Articles */
+.list-section{padding:24px}
+.list-title{font-family:'Fredoka',sans-serif;font-size:18px;color:var(--bark);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.list-item{display:flex;gap:14px;background:#fff;border-radius:14px;padding:16px;margin-bottom:10px;box-shadow:0 1px 8px rgba(0,0,0,0.04);align-items:center}
+.li-num{width:36px;height:36px;background:var(--sage);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fredoka',sans-serif;font-size:16px;color:var(--leaf-dark);font-weight:700;flex-shrink:0}
+.li-content h4{font-family:'Fredoka',sans-serif;font-size:14px;color:var(--bark);margin-bottom:2px}
+.li-content p{font-size:12px;color:#999}
+
+/* Footer */
+.footer{background:var(--leaf-dark);margin-top:16px;padding:32px;text-align:center;border-radius:24px 24px 0 0}
+.footer h3{font-family:'Fredoka',sans-serif;font-size:20px;color:#fff;margin-bottom:6px}
+.footer p{font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:16px}
+.social{display:flex;justify-content:center;gap:10px;margin-bottom:20px}
+.social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px}
+.footer-tiny{font-size:10px;color:rgba(255,255,255,0.35);line-height:1.6}
+</style>
+</head>
+<body>
+<div class="newsletter">
+  <div class="header">
+    <div class="header-badge">🌱 March 2026 · Issue 47</div>
+    <h1>VeganFirst <span class="emoji">🌿</span></h1>
+    <p>Your friendly monthly guide to plant-powered living in India</p>
+  </div>
+
+  <div class="quick-links">
+    <span class="ql">🍛 Food</span>
+    <span class="ql">💄 Beauty</span>
+    <span class="ql">🌍 Travel</span>
+    <span class="ql">💪 Fitness</span>
+    <span class="ql">📖 Recipes</span>
+    <span class="ql">🎪 Events</span>
+  </div>
+
+  <div class="featured">
+    <div class="feat-img">
+      🥑
+      <span class="feat-badge">✨ Cover Story</span>
+    </div>
+    <div class="feat-body">
+      <h2>India's Plant Protein Revolution Is Here! 🎉</h2>
+      <div class="feat-meta">
+        <span>By Palak Mehta</span><span class="dot"></span><span>5 min read</span>
+      </div>
+      <p>From street-food stalls in Delhi to upscale restaurants in Bengaluru, plant-based protein alternatives are going mainstream. The Indian vegan food market is set to reach ₹8,500 crore by 2028, driven by health-conscious millennials and environmental awareness. We explore the pioneers making it happen.</p>
+      <a href="#" class="feat-cta">Read Full Story →</a>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🍜</div>
+      <div class="card-body">
+        <div class="card-cat">Food & Dining</div>
+        <h3>Mumbai's 12 Best New Vegan Cafés</h3>
+        <p>From Bandra's leafy lanes to Colaba's art-deco corners, discover new plant-based spots.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">👨‍🍳</div>
+      <div class="card-body">
+        <div class="card-cat">Chef Spotlight</div>
+        <h3>Ritu Dalmia on Compassion in Cooking</h3>
+        <p>The celebrated restaurateur shares her journey toward fully plant-based cuisine.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">💅</div>
+      <div class="card-body">
+        <div class="card-cat">Beauty</div>
+        <h3>Vegan Beauty Awards 2026 Winners</h3>
+        <p>Our annual roundup of India's finest cruelty-free skincare and cosmetics.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">✈️</div>
+      <div class="card-body">
+        <div class="card-cat">Travel</div>
+        <h3>Vegan-Friendly Goa: The Complete Guide</h3>
+        <p>Beach shacks, fine dining, and hidden gems for plant-based travelers.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fun-fact">
+    <div class="ff-emoji">🧠</div>
+    <div class="ff-text">
+      <strong>Did You Know?</strong>
+      India has the highest number of vegetarians in the world—and the fastest-growing vegan movement. Over 13 million Indians now identify as vegan!
+    </div>
+  </div>
+
+  <div class="list-section">
+    <div class="list-title">📚 Also in This Issue</div>
+    <div class="list-item">
+      <div class="li-num">5</div>
+      <div class="li-content"><h4>Monsoon Superfoods You're Overlooking</h4><p>By Dr. Nandita Shah · Nutrition</p></div>
+    </div>
+    <div class="list-item">
+      <div class="li-num">6</div>
+      <div class="li-content"><h4>Your Zero-Waste Kitchen Starts Here</h4><p>By Meera Sodha · Sustainability</p></div>
+    </div>
+    <div class="list-item">
+      <div class="li-num">7</div>
+      <div class="li-content"><h4>The Jackfruit Economy: From Backyard to Export</h4><p>By Rohan Desai · Business</p></div>
+    </div>
+    <div class="list-item">
+      <div class="li-num">8</div>
+      <div class="li-content"><h4>Community Letters & Upcoming Events</h4><p>Your stories · What's next</p></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <h3>Stay Green, Stay Kind 💚</h3>
+    <p>Follow us for daily doses of vegan goodness</p>
+    <div class="social">
+      <a href="#">📷</a><a href="#">▶️</a><a href="#">📘</a><a href="#">📌</a>
+    </div>
+    <div class="footer-tiny">© 2026 Vegan Passion Pvt. Ltd. · hello@veganfirst.com<br>Unsubscribe · Manage Preferences</div>
+  </div>
+</div>
+</body>
+</html>

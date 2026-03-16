@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VeganFirst Newsletter — 10 Design Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#6cbd45;--green-dark:#3a7a1e;--dark:#0c0c0c;--charcoal:#141414;--gray:#888;--light:#f5f5f5}
+body{background:var(--dark);font-family:'Instrument Sans',sans-serif;color:#fff;min-height:100vh}
+
+/* Top Bar */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(12,12,12,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.topbar-logo{font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;letter-spacing:-0.3px}
+.topbar-logo span{color:var(--green)}
+.topbar-sub{font-size:11px;color:var(--gray);margin-left:12px;padding-left:12px;border-left:1px solid rgba(255,255,255,0.1)}
+.topbar-right{font-size:11px;color:var(--gray)}
+
+/* Sidebar Nav */
+.sidebar{position:fixed;top:64px;left:0;width:280px;bottom:0;background:var(--charcoal);border-right:1px solid rgba(255,255,255,0.06);overflow-y:auto;z-index:999;padding:20px 0}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px}
+.sb-label{font-size:9px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;padding:0 20px;margin-bottom:12px;font-weight:600}
+.sb-item{display:flex;align-items:center;gap:12px;padding:12px 20px;cursor:pointer;transition:all 0.2s;border-left:3px solid transparent;position:relative}
+.sb-item:hover{background:rgba(255,255,255,0.03)}
+.sb-item.active{background:rgba(108,189,69,0.08);border-left-color:var(--green)}
+.sb-num{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:800;color:rgba(255,255,255,0.15);min-width:24px}
+.sb-item.active .sb-num{color:var(--green)}
+.sb-info{flex:1;min-width:0}
+.sb-name{font-size:13px;font-weight:600;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-desc{font-size:10px;color:var(--gray);line-height:1.4}
+.sb-item.active .sb-name{color:var(--green)}
+.sb-tag{font-size:8px;padding:2px 6px;border-radius:3px;letter-spacing:0.5px;font-weight:600;flex-shrink:0}
+.sb-tag.light{background:rgba(255,255,255,0.06);color:var(--gray)}
+.sb-tag.dark{background:rgba(108,189,69,0.15);color:var(--green)}
+
+/* Divider in sidebar */
+.sb-divider{height:1px;background:rgba(255,255,255,0.04);margin:16px 20px}
+
+/* Brand summary */
+.sb-brand{padding:16px 20px;margin:0 12px;background:rgba(108,189,69,0.05);border:1px solid rgba(108,189,69,0.1);border-radius:8px}
+.sb-brand h4{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:6px;font-weight:700}
+.sb-brand-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0}
+.sb-brand-row span:first-child{font-size:10px;color:var(--gray)}
+.sb-brand-row span:last-child{font-size:10px;font-weight:600}
+.sb-swatch{display:flex;gap:4px;margin-top:6px}
+.sb-swatch span{width:16px;height:16px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)}
+
+/* Main content */
+.main{margin-left:280px;margin-top:64px;height:calc(100vh - 64px)}
+.main iframe{width:100%;height:100%;border:none;background:#fff}
+
+/* Keyboard hint */
+.kb-hint{position:fixed;bottom:20px;right:20px;background:rgba(20,20,20,0.9);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 16px;font-size:10px;color:var(--gray);display:flex;gap:16px;z-index:1000}
+.kb-hint kbd{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:1px 6px;font-family:inherit;color:#fff;font-size:10px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div style="display:flex;align-items:center">
+    <div class="topbar-logo">Vegan<span>First</span></div>
+    <span class="topbar-sub">Newsletter Design Options</span>
+  </div>
+  <div class="topbar-right">10 Designs · March 2026</div>
+</div>
+
+<div class="sidebar">
+  <div class="sb-label">Choose a Design</div>
+
+  <div class="sb-item active" onclick="loadDesign(1, this)">
+    <div class="sb-num">01</div>
+    <div class="sb-info"><div class="sb-name">The Verdant Edit</div><div class="sb-desc">Luxury editorial · Emerald + Gold</div></div>
+    <div class="sb-tag light">Light</div>
+  </div>
+  <div class="sb-item" onclick="loadDesign(2, this)">
+    <div class="sb-num">02</div>
+    <div class="sb-info"><div class="sb-name">Sprout</div><div class="sb-desc">Playful & friendly · Rounded cards</div></div>
+    <div class="sb-tag light">Light</div>
+  </div>
+  <div class="sb-item" onclick="loadDesign(3, this)">
+    <div class="sb-num">03</div>
+    <div class="sb-info"><div class="sb-name">Pure</div><div class="sb-desc">Ultra-minimal Swiss · Clean grid</div></div>
+    <div class="sb-tag light">Light</div>
+  </div>
+  <div class="sb-item" onclick="loadDesign(4, this)">
+    <div class="sb-num">04</div>
+    <div class="sb-info"><div class="sb-name">Harvest</div><div class="sb-desc">Warm earthy · Terracotta + Sage</div></div>
+    <div class="sb-tag light">Light</div>
+  </div>
+  <div class="sb-item" onclick="loadDesign(5, this)">
+    <div class="sb-num">05</div>
+    <div class="sb-info"><div class="sb-name">Chlorophyll</div><div class="sb-desc">Bold brutalist · Black + Neon green</div></div>
+    <div class="sb-tag dark">Dark</div>
+  </div>
+  <div class="sb-item" onclick="loadDesign(6, this)">
+    <div class="sb-num">06</div>
+    <div class="sb-info"><div class="sb-name">Bloom</div><div class="sb-desc">Soft botanical · Pastel + Watercolor</div></div>
+    <div class="sb-tag light">Light</div>
+  </div>
+  <div class="sb-item" onclick="loadDesign(7, this)">
+    <div class="sb-num">07</div>
+    <div class="sb-info"><div class="sb-name">Roots</div><div class="sb-desc">Moody dark mode · Deep forest</div></div>
+    <div class="sb-tag dark">Dark</div>
+  </div>
+  <div class="sb-item" onclick="loadDesign(8, this)">
+    <div class="sb-num">08</div>
+    <div class="sb-info"><div class="sb-name">Canopy</div><div class="sb-desc">Brand green · Modern app-like</div></div>
+    <div class="sb-tag light">Light</div>
+  </div>
+  <div class="sb-item" onclick="loadDesign(9, this)">
+    <div class="sb-num">09</div>
+    <div class="sb-info"><div class="sb-name">Grain</div><div class="sb-desc">Retro newspaper · Broadsheet editorial</div></div>
+    <div class="sb-tag light">Light</div>
+  </div>
+  <div class="sb-item" onclick="loadDesign(10, this)">
+    <div class="sb-num">10</div>
+    <div class="sb-info"><div class="sb-name">Pulse</div><div class="sb-desc">Tech-forward · Gradient mesh · Glass</div></div>
+    <div class="sb-tag light">Light</div>
+  </div>
+
+  <div class="sb-divider"></div>
+
+  <div class="sb-brand">
+    <h4>Brand DNA Extracted</h4>
+    <div class="sb-brand-row"><span>Primary</span><span>#6cbd45</span></div>
+    <div class="sb-brand-row"><span>Font</span><span>LeagueGothic</span></div>
+    <div class="sb-brand-row"><span>Articles</span><span>8–9 × 200 words</span></div>
+    <div class="sb-brand-row"><span>Tone</span><span>Approachable</span></div>
+    <div class="sb-swatch">
+      <span style="background:#6cbd45"></span>
+      <span style="background:#2d8a4e"></span>
+      <span style="background:#1a5c2a"></span>
+      <span style="background:#faf8f3"></span>
+      <span style="background:#1a1a1a"></span>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <iframe id="preview" src="design-1.html"></iframe>
+</div>
+
+<div class="kb-hint">
+  <span><kbd>↑</kbd> <kbd>↓</kbd> Navigate</span>
+  <span><kbd>1</kbd>–<kbd>0</kbd> Jump to design</span>
+</div>
+
+<script>
+let currentDesign = 1;
+
+function loadDesign(num, el) {
+  currentDesign = num;
+  document.getElementById('preview').src = `design-${num}.html`;
+  document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
+  if (el) el.classList.add('active');
+}
+
+document.addEventListener('keydown', (e) => {
+  const items = document.querySelectorAll('.sb-item');
+  if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+    e.preventDefault();
+    const next = Math.min(currentDesign + 1, 10);
+    loadDesign(next, items[next - 1]);
+    items[next - 1].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+    e.preventDefault();
+    const prev = Math.max(currentDesign - 1, 1);
+    loadDesign(prev, items[prev - 1]);
+    items[prev - 1].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  } else if (e.key >= '1' && e.key <= '9') {
+    const num = parseInt(e.key);
+    loadDesign(num, items[num - 1]);
+    items[num - 1].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  } else if (e.key === '0') {
+    loadDesign(10, items[9]);
+    items[9].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+});
+</script>
+</body>
+</html>
