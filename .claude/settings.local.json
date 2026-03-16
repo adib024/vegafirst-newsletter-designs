@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)",
+      "WebFetch(domain:www.veganfirst.com)",
+      "WebSearch"
+    ]
+  }
+}

@@ -3,155 +3,258 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design 6 — Bloom</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>VeganFirst — Equinox</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
---rose:#e8c4c8;--rose-deep:#c47a82;--blush:#fdf2f0;--sage:#b5c9a8;
---sage-deep:#7a9b6a;--cream:#fefcf9;--ink:#2d2a26;--warm:#8a7e74;
---lavender:#e5ddf0;--peach:#f5ddd0;
-}
-body{background:var(--blush);font-family:'Karla',sans-serif;color:var(--ink)}
-.newsletter{max-width:660px;margin:0 auto;background:var(--cream)}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #c8c4bc; font-family: 'Inter', sans-serif; display: flex; justify-content: center; padding: 40px 20px; min-height: 100vh; }
+.shell { width: 680px; background: #fff; }
 
-/* Header */
-.header{padding:44px 40px;text-align:center;background:var(--cream);position:relative}
-.header::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--rose),var(--sage),var(--lavender),var(--peach))}
-.h-icon{font-size:28px;margin-bottom:8px}
-.h-logo{font-family:'Fraunces',serif;font-size:30px;font-weight:700;color:var(--ink);margin-bottom:2px}
-.h-logo span{color:var(--sage-deep)}
-.h-sub{font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--warm);font-weight:300;margin-bottom:16px}
-.h-date{font-size:10px;color:var(--warm);letter-spacing:3px;text-transform:uppercase}
-.h-border{width:40px;height:1px;background:var(--rose);margin:20px auto 0}
+.top-band { background: #6cbd45; padding: 8px 32px; display: flex; justify-content: space-between; align-items: center; }
+.tb-text { font-size: 9px; color: rgba(255,255,255,0.75); letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+.tb-link { font-size: 9px; color: #fff; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; font-weight: 700; }
 
-/* Categories */
-.cats{display:flex;justify-content:center;gap:6px;padding:16px 24px;flex-wrap:wrap}
-.cat-pill{padding:5px 14px;border-radius:20px;font-size:11px;font-weight:500;border:1px solid}
-.cat-pill:nth-child(1){color:var(--sage-deep);border-color:var(--sage);background:rgba(181,201,168,0.15)}
-.cat-pill:nth-child(2){color:var(--rose-deep);border-color:var(--rose);background:rgba(232,196,200,0.15)}
-.cat-pill:nth-child(3){color:#8b7ab5;border-color:var(--lavender);background:rgba(229,221,240,0.15)}
-.cat-pill:nth-child(4){color:#b5886a;border-color:var(--peach);background:rgba(245,221,208,0.15)}
+.masthead { display: grid; grid-template-columns: auto 1fr auto; align-items: center; padding: 0; border-bottom: 3px solid #111; }
+.mast-left { padding: 0 28px; border-right: 2px solid #111; height: 80px; display: flex; flex-direction: column; justify-content: center; }
+.mast-left-top { font-size: 8px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #6cbd45; }
+.mast-left-date { font-size: 12px; font-weight: 700; color: #111; margin-top: 2px; }
+.mast-logo-block { flex: 1; display: flex; align-items: center; justify-content: center; height: 80px; }
+.mast-logo { font-size: 34px; font-weight: 900; color: #111; letter-spacing: -1.5px; text-transform: uppercase; }
+.mast-logo span { color: #6cbd45; }
+.mast-right { padding: 0 28px; border-left: 2px solid #111; height: 80px; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; }
+.mast-right-top { font-size: 8px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+.mast-right-vol { font-size: 12px; font-weight: 700; color: #111; margin-top: 2px; }
 
-/* Featured */
-.featured{padding:36px 40px;border-top:1px solid #f0ebe5;border-bottom:1px solid #f0ebe5}
-.f-badge{display:inline-block;background:var(--sage);color:#fff;font-size:9px;font-weight:600;padding:4px 10px;border-radius:3px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
-.featured h1{font-family:'Fraunces',serif;font-size:32px;font-weight:500;line-height:1.25;margin-bottom:10px;color:var(--ink)}
-.featured h1 em{font-style:italic;color:var(--sage-deep);font-weight:300}
-.f-meta{font-size:12px;color:var(--warm);margin-bottom:20px}
-.f-meta b{color:var(--ink);font-weight:500}
-.f-img{width:100%;height:200px;border-radius:8px;margin-bottom:20px;background:linear-gradient(135deg,var(--sage),rgba(181,201,168,0.4));display:flex;align-items:center;justify-content:center;font-size:48px;opacity:0.7}
-.featured p{font-size:14px;line-height:1.85;color:var(--warm)}
-.featured p::first-letter{font-family:'Fraunces',serif;font-size:44px;float:left;margin-right:6px;line-height:0.9;color:var(--sage-deep);font-weight:700}
-.f-cta{display:inline-block;margin-top:16px;color:var(--sage-deep);font-size:12px;text-decoration:none;font-weight:600;border-bottom:1.5px solid var(--sage);padding-bottom:1px}
+.nav-grid { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 2px solid #111; }
+.nav-cell { padding: 10px 0; text-align: center; border-right: 1px solid #e8e8e4; font-size: 8.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #111; text-decoration: none; display: block; }
+.nav-cell:last-child { border-right: none; background: #111; color: #6cbd45; }
+.nav-cell:hover { background: #f4f4f0; }
 
-/* Watercolor divider */
-.wc-divider{padding:4px 0;text-align:center}
-.wc-divider .line{display:inline-block;width:200px;height:3px;background:linear-gradient(90deg,transparent,var(--rose),var(--sage),var(--lavender),transparent);border-radius:2px}
+.hero-block { display: grid; grid-template-columns: 1.1fr 1fr; border-bottom: 2px solid #111; }
+.hero-img-wrap { position: relative; overflow: hidden; }
+.hero-img-wrap img { width: 100%; height: 340px; object-fit: cover; display: block; }
+.hero-img-label { position: absolute; bottom: 0; left: 0; background: #6cbd45; color: #fff; font-size: 8px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 12px; }
+.hero-text { padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; border-left: 2px solid #111; }
+.hero-kicker { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6cbd45; margin-bottom: 10px; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: #111; line-height: 1.15; margin-bottom: 14px; }
+.hero-title em { font-style: italic; }
+.hero-body { font-size: 12px; color: #555; line-height: 1.7; font-weight: 400; }
+.hero-meta { margin-top: 16px; }
+.hero-author { font-size: 9.5px; color: #888; }
+.hero-btn { display: inline-block; margin-top: 14px; background: #111; color: #fff; font-size: 8.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 10px 18px; text-decoration: none; }
 
-/* 2 col articles */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid #f0ebe5}
-.tc-item{padding:28px 40px}
-.tc-item:first-child{border-right:1px solid #f0ebe5}
-.tc-cat{font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:8px}
-.tc-item:nth-child(1) .tc-cat{color:var(--rose-deep)}
-.tc-item:nth-child(2) .tc-cat{color:#8b7ab5}
-.tc-item h3{font-family:'Fraunces',serif;font-size:18px;font-weight:500;line-height:1.35;margin-bottom:6px}
-.tc-item .f-meta{margin-bottom:8px}
-.tc-item p{font-size:12px;line-height:1.7;color:var(--warm)}
+.number-row { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 2px solid #111; }
+.num-cell { padding: 20px; border-right: 1px solid #111; text-align: center; }
+.num-cell:last-child { border-right: none; }
+.num-big { font-size: 46px; font-weight: 900; color: #6cbd45; line-height: 1; letter-spacing: -2px; }
+.num-label { font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-top: 4px; }
+.num-desc { font-size: 10.5px; color: #555; margin-top: 6px; line-height: 1.4; }
 
-/* Quote */
-.quote-block{padding:32px 48px;background:var(--blush);text-align:center;border-bottom:1px solid #f0ebe5}
-.quote-block .h-icon{margin-bottom:8px}
-.quote-block blockquote{font-family:'Fraunces',serif;font-style:italic;font-size:19px;line-height:1.5;color:var(--ink);font-weight:300}
-.quote-block cite{display:block;font-style:normal;font-family:'Karla',sans-serif;font-size:10px;color:var(--warm);letter-spacing:1.5px;text-transform:uppercase;margin-top:10px}
+.section-bar { background: #111; padding: 8px 28px; display: flex; align-items: center; gap: 14px; }
+.sb-label { font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #6cbd45; }
+.sb-line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
 
-/* Stacked list */
-.stacked{padding:28px 40px;border-bottom:1px solid #f0ebe5}
-.stacked-title{font-family:'Fraunces',serif;font-size:16px;font-weight:500;margin-bottom:16px;color:var(--ink)}
-.s-item{display:flex;gap:14px;padding:14px 0;border-top:1px solid #f0ebe5;align-items:center}
-.s-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.s-item:nth-child(2) .s-dot{background:var(--sage)}
-.s-item:nth-child(3) .s-dot{background:var(--rose)}
-.s-item:nth-child(4) .s-dot{background:var(--lavender)}
-.s-item:nth-child(5) .s-dot{background:var(--peach)}
-.s-content h4{font-size:14px;font-weight:500;margin-bottom:1px}
-.s-content p{font-size:11px;color:var(--warm)}
+.three-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 2px solid #111; }
+.tg-item { border-right: 1px solid #111; }
+.tg-item:last-child { border-right: none; }
+.tg-item img { width: 100%; height: 110px; object-fit: cover; display: block; border-bottom: 1px solid #111; }
+.tg-body { padding: 14px; }
+.tg-tag { font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6cbd45; margin-bottom: 6px; }
+.tg-head { font-size: 13px; font-weight: 700; color: #111; line-height: 1.28; margin-bottom: 6px; letter-spacing: -0.2px; }
+.tg-text { font-size: 10.5px; color: #666; line-height: 1.6; }
+.tg-link { font-size: 8.5px; color: #6cbd45; text-decoration: none; margin-top: 8px; display: block; font-weight: 600; letter-spacing: 0.5px; }
 
-/* Footer */
-.footer{padding:36px 40px;text-align:center;background:var(--cream)}
-.footer::before{content:'';display:block;width:100%;height:3px;background:linear-gradient(90deg,var(--rose),var(--sage),var(--lavender),var(--peach));margin-bottom:28px;border-radius:2px}
-.f-logo2{font-family:'Fraunces',serif;font-size:20px;font-weight:700;margin-bottom:4px}
-.f-logo2 span{color:var(--sage-deep)}
-.f-tag2{font-family:'Fraunces',serif;font-style:italic;font-size:12px;color:var(--warm);margin-bottom:16px}
-.f-links2{margin-bottom:16px}
-.f-links2 a{font-size:10px;color:var(--warm);text-decoration:none;margin:0 10px;letter-spacing:1px}
-.f-copy2{font-size:10px;color:#ccc;line-height:1.8}
+.feature-band { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid #111; }
+.fb-img img { width: 100%; height: 240px; object-fit: cover; display: block; }
+.fb-content { padding: 26px; border-left: 2px solid #111; display: flex; flex-direction: column; justify-content: center; }
+.fb-tag { font-size: 8.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6cbd45; margin-bottom: 10px; }
+.fb-head { font-size: 22px; font-weight: 700; color: #111; line-height: 1.2; letter-spacing: -0.3px; margin-bottom: 12px; }
+.fb-body { font-size: 11.5px; color: #555; line-height: 1.68; }
+.fb-btn { display: inline-block; margin-top: 16px; background: #6cbd45; color: #fff; font-size: 8.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 10px 18px; text-decoration: none; }
+
+.recipe-band { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid #111; background: #f8f8f4; }
+.rb-content { padding: 26px; }
+.rb-tag { font-size: 8.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6cbd45; margin-bottom: 10px; }
+.rb-head { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #111; line-height: 1.15; margin-bottom: 12px; }
+.rb-head em { font-style: italic; }
+.rb-body { font-size: 11.5px; color: #555; line-height: 1.68; }
+.rb-stats { display: flex; gap: 18px; margin-top: 14px; }
+.rb-stat { }
+.rb-stat-val { font-size: 22px; font-weight: 900; color: #111; line-height: 1; }
+.rb-stat-key { font-size: 8px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #aaa; margin-top: 2px; }
+.rb-img img { width: 100%; height: 100%; object-fit: cover; display: block; border-left: 2px solid #111; }
+
+.quote-band { padding: 30px 48px; border-bottom: 2px solid #111; background: #6cbd45; }
+.qb-text { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic; font-weight: 300; color: #fff; line-height: 1.45; }
+.qb-author { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 14px; }
+
+.footer { background: #111; padding: 28px 32px; }
+.f-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.f-logo { font-size: 20px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+.f-logo span { color: #6cbd45; }
+.f-links { display: flex; gap: 18px; }
+.f-links a { font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #444; text-decoration: none; }
+.f-sep { height: 1px; background: #222; margin-bottom: 14px; }
+.f-copy { font-size: 9px; color: #333; line-height: 1.6; }
 </style>
 </head>
 <body>
-<div class="newsletter">
-  <div class="header">
-    <div class="h-icon">🌸</div>
-    <div class="h-logo">Vegan<span>First</span></div>
-    <div class="h-sub">Plant-powered living, beautifully curated</div>
-    <div class="h-date">March 2026 · Issue 47</div>
-    <div class="h-border"></div>
+<div class="shell">
+
+  <div class="top-band">
+    <span class="tb-text">VeganFirst Monthly &mdash; March 2026</span>
+    <a class="tb-link" href="#">View online &rarr;</a>
   </div>
 
-  <div class="cats">
-    <span class="cat-pill">🌿 Food</span>
-    <span class="cat-pill">🌺 Beauty</span>
-    <span class="cat-pill">🧘 Lifestyle</span>
-    <span class="cat-pill">🌏 Travel</span>
-  </div>
-
-  <div class="featured">
-    <div class="f-badge">Cover Story</div>
-    <h1>India's Plant Protein <em>Revolution</em> Is Here</h1>
-    <div class="f-meta">By <b>Palak Mehta</b> · 5 min read · Photography by Ankit Sharma</div>
-    <div class="f-img">🌱</div>
-    <p>The landscape of Indian cuisine is undergoing a beautiful transformation. From bustling street-food stalls in Delhi to upscale restaurants in Bengaluru, plant-based protein alternatives are becoming mainstream. The Indian vegan food market is projected to reach ₹8,500 crore by 2028, driven by health-conscious millennials and environmental awareness.</p>
-    <a href="#" class="f-cta">Continue Reading →</a>
-  </div>
-
-  <div class="wc-divider"><span class="line"></span></div>
-
-  <div class="two-col">
-    <div class="tc-item">
-      <div class="tc-cat">Food & Dining</div>
-      <h3>Mumbai's Best New Vegan Cafés</h3>
-      <div class="f-meta">By <b>Riya Kapoor</b></div>
-      <p>Twelve plant-based destinations from Bandra to Colaba redefining the city's culinary scene this season.</p>
+  <div class="masthead">
+    <div class="mast-left">
+      <div class="mast-left-top">Edition</div>
+      <div class="mast-left-date">March 2026</div>
     </div>
-    <div class="tc-item">
-      <div class="tc-cat">Chef Spotlight</div>
-      <h3>Ritu Dalmia on Compassion in Cooking</h3>
-      <div class="f-meta">By <b>Arjun Nair</b></div>
-      <p>The celebrated restaurateur shares her journey and why Indian cuisine was always meant to be vegan.</p>
+    <div class="mast-logo-block">
+      <div class="mast-logo">Vegan<span>First</span></div>
+    </div>
+    <div class="mast-right">
+      <div class="mast-right-top">Volume</div>
+      <div class="mast-right-vol">VIII &bull; 12</div>
     </div>
   </div>
 
-  <div class="quote-block">
-    <div class="h-icon">🌿</div>
-    <blockquote>"Veganism is not about perfection. It's about doing the best you can, with kindness as your compass."</blockquote>
-    <cite>— Palak Mehta, Founder, VeganFirst</cite>
+  <div class="nav-grid">
+    <a class="nav-cell" href="#">Food</a>
+    <a class="nav-cell" href="#">Wellness</a>
+    <a class="nav-cell" href="#">Fashion</a>
+    <a class="nav-cell" href="#">Earth</a>
+    <a class="nav-cell" href="#">Business</a>
+    <a class="nav-cell" href="#">Subscribe</a>
   </div>
 
-  <div class="stacked">
-    <div class="stacked-title">Also in This Issue</div>
-    <div class="s-item"><div class="s-dot"></div><div class="s-content"><h4>Monsoon Superfoods You're Overlooking</h4><p>Dr. Nandita Shah · Nutrition</p></div></div>
-    <div class="s-item"><div class="s-dot"></div><div class="s-content"><h4>Your Zero-Waste Kitchen Starts Here</h4><p>Meera Sodha · Sustainability</p></div></div>
-    <div class="s-item"><div class="s-dot"></div><div class="s-content"><h4>Vegan Beauty Awards 2026 Winners</h4><p>Priya Sharma · Beauty</p></div></div>
-    <div class="s-item"><div class="s-dot"></div><div class="s-content"><h4>The Jackfruit Economy: Backyard to Export</h4><p>Rohan Desai · Business</p></div></div>
+  <div class="hero-block">
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=420&h=340&q=85" alt="">
+      <div class="hero-img-label">Cover Story</div>
+    </div>
+    <div class="hero-text">
+      <div>
+        <div class="hero-kicker">Food &amp; Policy</div>
+        <div class="hero-title">The Supreme Court ruling that changed dairy-free <em>forever</em></div>
+        <div class="hero-body">How the UK&rsquo;s landmark decision against Oatly is reshaping branding, regulation, and the future of the global plant-based beverage market.</div>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-author">Priya Menon &bull; 6 min read</div>
+        <a class="hero-btn" href="#">Read story</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="number-row">
+    <div class="num-cell">
+      <div class="num-big">226</div>
+      <div class="num-label">Crore INR</div>
+      <div class="num-desc">Marico&rsquo;s investment in plant-based brand Cosmix &mdash; India&rsquo;s largest deal in the sector.</div>
+    </div>
+    <div class="num-cell">
+      <div class="num-big">23</div>
+      <div class="num-label">Hotels</div>
+      <div class="num-desc">Hilton properties across India where Gooddot plant-based menus are now available.</div>
+    </div>
+    <div class="num-cell">
+      <div class="num-big">40%</div>
+      <div class="num-label">Growth</div>
+      <div class="num-desc">Year-on-year rise in plant-based food consumption in India&rsquo;s Tier 1 cities.</div>
+    </div>
+  </div>
+
+  <div class="section-bar"><div class="sb-label">This Month</div><div class="sb-line"></div></div>
+
+  <div class="three-grid">
+    <div class="tg-item">
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=227&h=110&q=80" alt="">
+      <div class="tg-body">
+        <div class="tg-tag">Investment</div>
+        <div class="tg-head">Marico backs Cosmix with &#8377;226 crore</div>
+        <div class="tg-text">India&rsquo;s largest plant-based acquisition reshapes the market.</div>
+        <a class="tg-link" href="#">Read &rarr;</a>
+      </div>
+    </div>
+    <div class="tg-item">
+      <img src="https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=227&h=110&q=80" alt="">
+      <div class="tg-body">
+        <div class="tg-tag">Hospitality</div>
+        <div class="tg-head">Gooddot enters 23 Hilton properties</div>
+        <div class="tg-text">Luxury hotel menus go fully plant-forward.</div>
+        <a class="tg-link" href="#">Read &rarr;</a>
+      </div>
+    </div>
+    <div class="tg-item">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=227&h=110&q=80" alt="">
+      <div class="tg-body">
+        <div class="tg-tag">Medicine</div>
+        <div class="tg-head">Reversing diabetes with a plant-based diet</div>
+        <div class="tg-text">Kokilaben Hospital&rsquo;s landmark clinical findings.</div>
+        <a class="tg-link" href="#">Read &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-bar"><div class="sb-label">Feature</div><div class="sb-line"></div></div>
+
+  <div class="feature-band">
+    <div class="fb-img">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=340&h=240&q=80" alt="">
+    </div>
+    <div class="fb-content">
+      <div class="fb-tag">Fashion &amp; Sustainability</div>
+      <div class="fb-head">Luxury without leather: the new Indian designers</div>
+      <div class="fb-body">From mycelium to Piñatex, a new generation is building collections that challenge the definition of premium material.</div>
+      <a class="fb-btn" href="#">Read feature</a>
+    </div>
+  </div>
+
+  <div class="section-bar"><div class="sb-label">Recipe</div><div class="sb-line"></div></div>
+
+  <div class="recipe-band">
+    <div class="rb-content">
+      <div class="rb-tag">Recipe of the Month</div>
+      <div class="rb-head">Cashew <em>Shahi Paneer</em> with Rose Petal Cream</div>
+      <div class="rb-body">A regal north Indian classic reimagined entirely from plants. The depth of flavour will surprise even ardent dairy advocates.</div>
+      <div class="rb-stats">
+        <div class="rb-stat"><div class="rb-stat-val">35</div><div class="rb-stat-key">Min</div></div>
+        <div class="rb-stat"><div class="rb-stat-val">4</div><div class="rb-stat-key">Serves</div></div>
+        <div class="rb-stat"><div class="rb-stat-val">GF</div><div class="rb-stat-key">Type</div></div>
+      </div>
+    </div>
+    <div class="rb-img">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=340&h=240&q=80" alt="">
+    </div>
+  </div>
+
+  <div class="quote-band">
+    <div class="qb-text">&ldquo;The question is no longer whether plant-based food belongs at the finest tables. The question is why it took this long to arrive.&rdquo;</div>
+    <div class="qb-author">Chef Atul Kochhar &mdash; Michelin-Starred Restaurateur, London</div>
   </div>
 
   <div class="footer">
-    <div class="f-logo2">Vegan<span>First</span></div>
-    <div class="f-tag2">Rooted in kindness, blooming with purpose</div>
-    <div class="f-links2"><a href="#">Website</a><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">Contact</a></div>
-    <div class="f-copy2">© 2026 Vegan Passion Pvt. Ltd. · hello@veganfirst.com<br>Unsubscribe · Manage Preferences</div>
+    <div class="f-row">
+      <div class="f-logo">Vegan<span>First</span></div>
+      <div class="f-links">
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <a href="#">YouTube</a>
+        <a href="#">Pinterest</a>
+      </div>
+    </div>
+    <div class="f-sep"></div>
+    <div class="f-links" style="gap:20px; margin-bottom:12px;">
+      <a href="#">About</a>
+      <a href="#">Advertise</a>
+      <a href="#">Contribute</a>
+      <a href="#">Privacy</a>
+      <a href="#">Unsubscribe</a>
+    </div>
+    <div class="f-copy">&copy; 2026 VeganFirst Media Pvt. Ltd., Mumbai. All rights reserved.</div>
   </div>
+
 </div>
 </body>
 </html>
