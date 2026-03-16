@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VeganFirst Newsletter — 10 Premium Designs</title>
+<title>VeganFirst Newsletter — 20 Designs</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -27,26 +27,28 @@ body{background:var(--dark);font-family:'Inter',sans-serif;color:#fff;min-height
 .kb-row kbd{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:1px 6px;font-size:9px;color:#555;font-family:inherit}
 .kb-row span{font-size:9px;color:#333}
 
-.sidebar{position:fixed;top:56px;left:0;width:288px;bottom:0;background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;z-index:999;display:flex;flex-direction:column}
+.sidebar{position:fixed;top:56px;left:0;width:292px;bottom:0;background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;z-index:999}
 .sidebar::-webkit-scrollbar{width:2px}
 .sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.07)}
 
 .sb-head{font-size:8.5px;color:var(--text-muted);letter-spacing:2.5px;text-transform:uppercase;padding:18px 18px 8px;font-weight:600}
+.sb-group-label{font-size:8px;color:rgba(255,255,255,0.18);letter-spacing:2px;text-transform:uppercase;padding:14px 18px 6px;font-weight:700;display:flex;align-items:center;gap:10px}
+.sb-group-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.05)}
 
 .sb-item{display:flex;align-items:center;gap:10px;padding:10px 18px;cursor:pointer;transition:background 0.15s,border-color 0.15s;border-left:2px solid transparent}
 .sb-item:hover{background:rgba(255,255,255,0.02)}
 .sb-item.active{background:rgba(108,189,69,0.07);border-left-color:var(--green)}
-.sb-num{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;color:rgba(255,255,255,0.1);min-width:26px}
+.sb-num{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;color:rgba(255,255,255,0.1);min-width:26px}
 .sb-item.active .sb-num{color:var(--green)}
 .sb-info{flex:1;min-width:0}
-.sb-name{font-size:12.5px;font-weight:500;margin-bottom:1px;color:rgba(255,255,255,0.7)}
+.sb-name{font-size:12px;font-weight:500;margin-bottom:1px;color:rgba(255,255,255,0.7)}
 .sb-item.active .sb-name{color:#fff}
-.sb-desc{font-size:9.5px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4}
-.sb-badge{font-size:7.5px;padding:2px 6px;border-radius:3px;font-weight:600;flex-shrink:0;text-transform:uppercase;letter-spacing:0.5px}
+.sb-desc{font-size:9px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4}
+.sb-badge{font-size:7px;padding:2px 6px;border-radius:3px;font-weight:600;flex-shrink:0;text-transform:uppercase;letter-spacing:0.5px}
 .dark-badge{background:rgba(108,189,69,0.12);color:var(--green)}
 .light-badge{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.28)}
 
-.sb-div{height:1px;background:var(--border);margin:10px 18px}
+.sb-div{height:1px;background:var(--border);margin:8px 18px}
 
 .sb-brand{margin:8px 14px 18px;padding:14px;background:rgba(108,189,69,0.04);border:1px solid rgba(108,189,69,0.1);border-radius:8px}
 .sb-brand-label{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px;font-weight:700}
@@ -57,7 +59,7 @@ body{background:var(--dark);font-family:'Inter',sans-serif;color:#fff;min-height
 .swatches{display:flex;gap:4px;margin-top:9px}
 .sw{width:17px;height:17px;border-radius:4px;border:1px solid rgba(255,255,255,0.08)}
 
-.main{margin-left:288px;margin-top:56px;height:calc(100vh - 56px)}
+.main{margin-left:292px;margin-top:56px;height:calc(100vh - 56px)}
 .main iframe{width:100%;height:100%;border:none}
 </style>
 </head>
@@ -65,65 +67,118 @@ body{background:var(--dark);font-family:'Inter',sans-serif;color:#fff;min-height
 
 <div class="topbar">
   <div class="topbar-logo">Vegan<span>First</span></div>
-  <div class="topbar-center">Newsletter Design System &nbsp;&mdash;&nbsp; 10 Premium Templates &nbsp;&mdash;&nbsp; March 2026</div>
+  <div class="topbar-center">Newsletter Design System &nbsp;&mdash;&nbsp; 20 Templates</div>
   <div class="topbar-right">
-    <span class="t-counter" id="counter">1 of 10</span>
+    <span class="t-counter" id="counter">—</span>
     <div class="kb-row"><kbd>&uarr;</kbd><kbd>&darr;</kbd><span>navigate</span></div>
-    <div class="kb-row"><kbd>1&ndash;0</kbd><span>jump</span></div>
   </div>
 </div>
 
 <div class="sidebar">
-  <div class="sb-head">Select Design</div>
+  <div class="sb-group-label">New Premium Designs</div>
 
-  <div class="sb-item active" onclick="go(1,this)">
+  <div class="sb-item active" onclick="go('design-1.html','The Verdant — New',this)">
     <div class="sb-num">01</div>
-    <div class="sb-info"><div class="sb-name">The Verdant</div><div class="sb-desc">Luxury editorial &middot; Cormorant Garamond &middot; Ivory</div></div>
+    <div class="sb-info"><div class="sb-name">The Verdant</div><div class="sb-desc">Luxury editorial &middot; Cormorant &middot; Ivory</div></div>
     <div class="sb-badge light-badge">Light</div>
   </div>
-  <div class="sb-item" onclick="go(2,this)">
+  <div class="sb-item" onclick="go('design-2.html','Atelier — New',this)">
     <div class="sb-num">02</div>
-    <div class="sb-info"><div class="sb-name">Atelier</div><div class="sb-desc">Parisian minimal &middot; Baskerville &middot; Extreme whitespace</div></div>
+    <div class="sb-info"><div class="sb-name">Atelier</div><div class="sb-desc">Parisian minimal &middot; Baskerville &middot; Whitespace</div></div>
     <div class="sb-badge light-badge">Light</div>
   </div>
-  <div class="sb-item" onclick="go(3,this)">
+  <div class="sb-item" onclick="go('design-3.html','The Chronicle — New',this)">
     <div class="sb-num">03</div>
-    <div class="sb-info"><div class="sb-name">The Chronicle</div><div class="sb-desc">Broadsheet editorial &middot; Playfair Display &middot; Multi-col</div></div>
+    <div class="sb-info"><div class="sb-name">The Chronicle</div><div class="sb-desc">Broadsheet editorial &middot; Playfair Display</div></div>
     <div class="sb-badge light-badge">Light</div>
   </div>
-  <div class="sb-item" onclick="go(4,this)">
+  <div class="sb-item" onclick="go('design-4.html','Terroir — New',this)">
     <div class="sb-num">04</div>
-    <div class="sb-info"><div class="sb-name">Terroir</div><div class="sb-desc">Dark luxury &middot; EB Garamond &middot; Deep forest</div></div>
+    <div class="sb-info"><div class="sb-name">Terroir</div><div class="sb-desc">Dark luxury &middot; EB Garamond &middot; Forest green</div></div>
     <div class="sb-badge dark-badge">Dark</div>
   </div>
-  <div class="sb-item" onclick="go(5,this)">
+  <div class="sb-item" onclick="go('design-5.html','Signal — New',this)">
     <div class="sb-num">05</div>
-    <div class="sb-info"><div class="sb-name">Signal</div><div class="sb-desc">Modern tech &middot; Inter &middot; Card-based dark mode</div></div>
+    <div class="sb-info"><div class="sb-name">Signal</div><div class="sb-desc">Modern tech &middot; Inter &middot; Card-based</div></div>
     <div class="sb-badge dark-badge">Dark</div>
   </div>
-  <div class="sb-item" onclick="go(6,this)">
+  <div class="sb-item" onclick="go('design-6.html','Equinox — New',this)">
     <div class="sb-num">06</div>
     <div class="sb-info"><div class="sb-name">Equinox</div><div class="sb-desc">Swiss grid &middot; Bold structure &middot; Color blocks</div></div>
     <div class="sb-badge light-badge">Light</div>
   </div>
-  <div class="sb-item" onclick="go(7,this)">
+  <div class="sb-item" onclick="go('design-7.html','Archive — New',this)">
     <div class="sb-num">07</div>
-    <div class="sb-info"><div class="sb-name">Archive</div><div class="sb-desc">Literary &middot; EB Garamond &middot; Space Mono labels</div></div>
+    <div class="sb-info"><div class="sb-name">Archive</div><div class="sb-desc">Literary &middot; EB Garamond &middot; Space Mono</div></div>
     <div class="sb-badge light-badge">Light</div>
   </div>
-  <div class="sb-item" onclick="go(8,this)">
+  <div class="sb-item" onclick="go('design-8.html','Terrain — New',this)">
     <div class="sb-num">08</div>
-    <div class="sb-info"><div class="sb-name">Terrain</div><div class="sb-desc">Botanical luxury &middot; Playfair &middot; Deep forest dark</div></div>
+    <div class="sb-info"><div class="sb-name">Terrain</div><div class="sb-desc">Botanical luxury &middot; Playfair &middot; Deep forest</div></div>
     <div class="sb-badge dark-badge">Dark</div>
   </div>
-  <div class="sb-item" onclick="go(9,this)">
+  <div class="sb-item" onclick="go('design-9.html','Edition — New',this)">
     <div class="sb-num">09</div>
-    <div class="sb-info"><div class="sb-name">Edition</div><div class="sb-desc">Business editorial &middot; Source Serif 4 &middot; FT-inspired</div></div>
+    <div class="sb-info"><div class="sb-name">Edition</div><div class="sb-desc">Business editorial &middot; Source Serif 4</div></div>
     <div class="sb-badge light-badge">Light</div>
   </div>
-  <div class="sb-item" onclick="go(10,this)">
+  <div class="sb-item" onclick="go('design-10.html','Meridian — New',this)">
     <div class="sb-num">10</div>
-    <div class="sb-info"><div class="sb-name">Meridian</div><div class="sb-desc">Travel &amp; lifestyle &middot; Libre Caslon &middot; Worldly</div></div>
+    <div class="sb-info"><div class="sb-name">Meridian</div><div class="sb-desc">Travel &amp; lifestyle &middot; Libre Caslon</div></div>
+    <div class="sb-badge light-badge">Light</div>
+  </div>
+
+  <div class="sb-div"></div>
+  <div class="sb-group-label">Original Designs</div>
+
+  <div class="sb-item" onclick="go('old-design-1.html','The Verdant Edit — Original',this)">
+    <div class="sb-num">01</div>
+    <div class="sb-info"><div class="sb-name">The Verdant Edit</div><div class="sb-desc">Luxury editorial &middot; Emerald + Gold</div></div>
+    <div class="sb-badge light-badge">Light</div>
+  </div>
+  <div class="sb-item" onclick="go('old-design-2.html','Sprout — Original',this)">
+    <div class="sb-num">02</div>
+    <div class="sb-info"><div class="sb-name">Sprout</div><div class="sb-desc">Playful &amp; friendly &middot; Rounded cards</div></div>
+    <div class="sb-badge light-badge">Light</div>
+  </div>
+  <div class="sb-item" onclick="go('old-design-3.html','Pure — Original',this)">
+    <div class="sb-num">03</div>
+    <div class="sb-info"><div class="sb-name">Pure</div><div class="sb-desc">Ultra-minimal Swiss &middot; Clean grid</div></div>
+    <div class="sb-badge light-badge">Light</div>
+  </div>
+  <div class="sb-item" onclick="go('old-design-4.html','Harvest — Original',this)">
+    <div class="sb-num">04</div>
+    <div class="sb-info"><div class="sb-name">Harvest</div><div class="sb-desc">Warm earthy &middot; Terracotta + Sage</div></div>
+    <div class="sb-badge light-badge">Light</div>
+  </div>
+  <div class="sb-item" onclick="go('old-design-5.html','Chlorophyll — Original',this)">
+    <div class="sb-num">05</div>
+    <div class="sb-info"><div class="sb-name">Chlorophyll</div><div class="sb-desc">Bold brutalist &middot; Black + Neon green</div></div>
+    <div class="sb-badge dark-badge">Dark</div>
+  </div>
+  <div class="sb-item" onclick="go('old-design-6.html','Bloom — Original',this)">
+    <div class="sb-num">06</div>
+    <div class="sb-info"><div class="sb-name">Bloom</div><div class="sb-desc">Soft botanical &middot; Pastel + Watercolor</div></div>
+    <div class="sb-badge light-badge">Light</div>
+  </div>
+  <div class="sb-item" onclick="go('old-design-7.html','Roots — Original',this)">
+    <div class="sb-num">07</div>
+    <div class="sb-info"><div class="sb-name">Roots</div><div class="sb-desc">Moody dark mode &middot; Deep forest</div></div>
+    <div class="sb-badge dark-badge">Dark</div>
+  </div>
+  <div class="sb-item" onclick="go('old-design-8.html','Canopy — Original',this)">
+    <div class="sb-num">08</div>
+    <div class="sb-info"><div class="sb-name">Canopy</div><div class="sb-desc">Brand green &middot; Modern app-like</div></div>
+    <div class="sb-badge light-badge">Light</div>
+  </div>
+  <div class="sb-item" onclick="go('old-design-9.html','Grain — Original',this)">
+    <div class="sb-num">09</div>
+    <div class="sb-info"><div class="sb-name">Grain</div><div class="sb-desc">Retro newspaper &middot; Broadsheet editorial</div></div>
+    <div class="sb-badge light-badge">Light</div>
+  </div>
+  <div class="sb-item" onclick="go('old-design-10.html','Pulse — Original',this)">
+    <div class="sb-num">10</div>
+    <div class="sb-info"><div class="sb-name">Pulse</div><div class="sb-desc">Tech-forward &middot; Gradient mesh &middot; Glass</div></div>
     <div class="sb-badge light-badge">Light</div>
   </div>
 
@@ -150,33 +205,26 @@ body{background:var(--dark);font-family:'Inter',sans-serif;color:#fff;min-height
 </div>
 
 <script>
-let cur = 1;
-function go(n, el) {
-  cur = n;
-  document.getElementById('preview').src = 'design-' + n + '.html';
+function go(src, label, el) {
+  document.getElementById('preview').src = src;
   document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
   if (el) el.classList.add('active');
-  document.getElementById('counter').textContent = n + ' of 10';
+  document.getElementById('counter').textContent = label;
 }
+
 document.addEventListener('keydown', e => {
-  const items = document.querySelectorAll('.sb-item');
-  if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+  const items = [...document.querySelectorAll('.sb-item')];
+  const cur = items.findIndex(i => i.classList.contains('active'));
+  if (e.key === 'ArrowDown') {
     e.preventDefault();
-    const n = Math.min(cur + 1, 10);
-    go(n, items[n - 1]);
-    items[n - 1].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+    const next = items[Math.min(cur + 1, items.length - 1)];
+    next.click();
+    next.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  } else if (e.key === 'ArrowUp') {
     e.preventDefault();
-    const n = Math.max(cur - 1, 1);
-    go(n, items[n - 1]);
-    items[n - 1].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  } else if (e.key >= '1' && e.key <= '9') {
-    const n = parseInt(e.key);
-    go(n, items[n - 1]);
-    items[n - 1].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  } else if (e.key === '0') {
-    go(10, items[9]);
-    items[9].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    const prev = items[Math.max(cur - 1, 0)];
+    prev.click();
+    prev.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 });
 </script>

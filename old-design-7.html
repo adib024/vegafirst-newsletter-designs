@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 7 — Roots</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--forest:#1b3a2d;--forest-deep:#0f2218;--moss:#3d6b4f;--cream:#f0e8d8;
+--gold:#c9a96e;--tan:#d4c5a9;--charcoal:#1c1c1c;--dim:#7a8a7e;
+}
+body{background:var(--charcoal);font-family:'Work Sans',sans-serif;color:var(--cream)}
+.newsletter{max-width:680px;margin:0 auto;background:var(--forest-deep)}
+
+/* Header */
+.header{padding:40px;background:var(--forest);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(61,107,79,0.4),transparent 60%)}
+.h-row{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.h-logo{font-family:'Libre Baskerville',serif;font-size:26px;font-weight:700;color:var(--cream)}
+.h-logo span{color:var(--gold)}
+.h-right{text-align:right}
+.h-date{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.h-issue{font-size:10px;color:var(--dim);letter-spacing:1px}
+.h-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--moss),transparent);margin:24px 0;position:relative;z-index:1}
+.h-title{position:relative;z-index:1;text-align:center}
+.h-title h1{font-family:'Libre Baskerville',serif;font-size:36px;font-weight:400;line-height:1.2;margin-bottom:6px}
+.h-title h1 em{font-style:italic;color:var(--gold)}
+.h-desc{font-size:13px;color:var(--dim);font-weight:300}
+
+/* Feature */
+.feature{padding:40px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.f-cat{font-size:10px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:500;margin-bottom:12px}
+.feature h2{font-family:'Libre Baskerville',serif;font-size:26px;font-weight:400;line-height:1.3;margin-bottom:8px}
+.f-meta{font-size:12px;color:var(--dim);margin-bottom:20px}
+.f-meta b{color:var(--cream);font-weight:500}
+.f-img{width:100%;height:200px;background:linear-gradient(135deg,var(--forest),var(--moss));border-radius:3px;margin-bottom:20px;display:flex;align-items:center;justify-content:center}
+.f-img span{font-size:10px;color:var(--dim);letter-spacing:2px;text-transform:uppercase}
+.feature p{font-size:14px;line-height:1.85;color:var(--tan);font-weight:300}
+.feature p::first-letter{font-family:'Libre Baskerville',serif;font-size:48px;float:left;margin-right:8px;line-height:0.85;color:var(--gold);font-weight:700}
+.f-link{display:inline-block;margin-top:16px;font-size:11px;color:var(--gold);text-decoration:none;letter-spacing:1.5px;text-transform:uppercase;border-bottom:1px solid rgba(201,169,110,0.3);padding-bottom:2px}
+
+/* 2-col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,0.06)}
+.tc{padding:32px 40px}
+.tc:first-child{border-right:1px solid rgba(255,255,255,0.06)}
+.tc h3{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:400;line-height:1.35;margin-bottom:6px}
+.tc p{font-size:12px;line-height:1.7;color:var(--dim);font-weight:300}
+
+/* Quote */
+.quote{padding:40px 56px;background:var(--forest);text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)}
+.quote blockquote{font-family:'Libre Baskerville',serif;font-size:20px;font-style:italic;color:var(--cream);line-height:1.5;font-weight:400}
+.quote cite{display:block;margin-top:12px;font-family:'Work Sans',sans-serif;font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-style:normal}
+
+/* Remaining */
+.remaining{padding:0 40px}
+.r-item{padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:18px;align-items:baseline}
+.r-num{font-family:'Libre Baskerville',serif;font-size:24px;color:rgba(201,169,110,0.3);font-weight:700;min-width:30px}
+.r-body h4{font-family:'Libre Baskerville',serif;font-size:16px;font-weight:400;margin-bottom:3px}
+.r-body p{font-size:11px;color:var(--dim);font-weight:300}
+.r-body .r-auth{font-size:10px;color:var(--gold);margin-top:3px;letter-spacing:0.5px}
+
+/* Footer */
+.footer{padding:36px 40px;text-align:center;margin-top:8px;background:var(--forest)}
+.footer .h-logo{font-size:20px;margin-bottom:4px}
+.f-tag{font-family:'Libre Baskerville',serif;font-style:italic;font-size:12px;color:var(--dim);margin-bottom:16px}
+.f-links{margin-bottom:16px}
+.f-links a{font-size:10px;color:var(--dim);text-decoration:none;margin:0 10px;letter-spacing:1.5px;text-transform:uppercase}
+.f-copy{font-size:9px;color:rgba(255,255,255,0.15);line-height:2}
+</style>
+</head>
+<body>
+<div class="newsletter">
+  <div class="header">
+    <div class="h-row">
+      <div class="h-logo">Vegan<span>First</span></div>
+      <div class="h-right"><div class="h-date">March 2026</div><div class="h-issue">Issue Forty-Seven</div></div>
+    </div>
+    <div class="h-divider"></div>
+    <div class="h-title">
+      <h1>Deep <em>Roots</em>, New Growth</h1>
+      <p class="h-desc">A monthly journal of India's plant-based movement</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="f-cat">Cover Story</div>
+    <h2>India's Plant Protein Revolution Is Here</h2>
+    <div class="f-meta">By <b>Palak Mehta</b> · 5 min · Photography by Ankit Sharma</div>
+    <div class="f-img"><span>[ Image Placeholder ]</span></div>
+    <p>The landscape of Indian cuisine is transforming. From bustling Delhi street stalls to Bengaluru's upscale dining rooms, plant-based alternatives are going mainstream. The market is projected to reach ₹8,500 crore by 2028, driven by health-conscious millennials and a growing awareness of the environmental impact of food choices.</p>
+    <a href="#" class="f-link">Continue Reading →</a>
+  </div>
+
+  <div class="two-col">
+    <div class="tc">
+      <div class="f-cat">Food</div>
+      <h3>Mumbai's Best New Vegan Cafés</h3>
+      <div class="f-meta">By <b>Riya Kapoor</b></div>
+      <p>Twelve plant-based destinations from Bandra to Colaba redefining the city's dining scene.</p>
+    </div>
+    <div class="tc">
+      <div class="f-cat">Chef Spotlight</div>
+      <h3>Ritu Dalmia on Compassion</h3>
+      <div class="f-meta">By <b>Arjun Nair</b></div>
+      <p>The celebrated restaurateur on her plant-based journey and why Indian cuisine was always meant to be vegan.</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="tc">
+      <div class="f-cat">Nutrition</div>
+      <h3>Monsoon Superfoods</h3>
+      <div class="f-meta">By <b>Dr. Nandita Shah</b></div>
+      <p>Moringa, water chestnut, turmeric—seasonal powerhouses for every vegan plate this monsoon.</p>
+    </div>
+    <div class="tc">
+      <div class="f-cat">Sustainability</div>
+      <h3>Zero-Waste Kitchen</h3>
+      <div class="f-meta">By <b>Meera Sodha</b></div>
+      <p>Composting in small apartments and building a circular kitchen that saves money and the planet.</p>
+    </div>
+  </div>
+
+  <div class="quote">
+    <blockquote>"When we eat with consciousness, every meal becomes an act of compassion."</blockquote>
+    <cite>— Dr. Nandita Shah</cite>
+  </div>
+
+  <div class="remaining">
+    <div class="r-item"><div class="r-num">06</div><div class="r-body"><h4>Vegan Beauty Awards 2026</h4><p>India's finest cruelty-free skincare and cosmetics—tested and celebrated.</p><div class="r-auth">Priya Sharma · Beauty</div></div></div>
+    <div class="r-item"><div class="r-num">07</div><div class="r-body"><h4>The Jackfruit Economy</h4><p>How a humble Kerala fruit became India's plant-based ambassador to the world.</p><div class="r-auth">Rohan Desai · Business</div></div></div>
+    <div class="r-item"><div class="r-num">08</div><div class="r-body"><h4>Vegan Goa: Complete Guide</h4><p>Beach shacks, fine dining, and hidden gems for plant-based travelers.</p><div class="r-auth">Anika Patel · Travel</div></div></div>
+    <div class="r-item"><div class="r-num">09</div><div class="r-body"><h4>Letters & Events</h4><p>Reader stories, upcoming festivals, and a preview of next month.</p><div class="r-auth">Community</div></div></div>
+  </div>
+
+  <div class="footer">
+    <div class="h-logo">Vegan<span>First</span></div>
+    <div class="f-tag">Rooted in kindness</div>
+    <div class="f-links"><a href="#">Website</a><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">Contact</a></div>
+    <div class="f-copy">© 2026 Vegan Passion Pvt. Ltd. · hello@veganfirst.com<br>Unsubscribe · Manage Preferences</div>
+  </div>
+</div>
+</body>
+</html>

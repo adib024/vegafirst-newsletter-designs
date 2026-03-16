@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 8 — Canopy</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--leaf:#6cbd45;--leaf-dark:#4a8c30;--forest:#1a3a1a;--mint:#e8f5e2;
+--lime:#c8e6a0;--white:#fff;--dark:#111;--gray:#666;--light-gray:#f8f8f8;
+}
+body{background:var(--light-gray);font-family:'Plus Jakarta Sans',sans-serif;color:var(--dark)}
+.newsletter{max-width:680px;margin:0 auto;background:var(--white)}
+
+/* Header — Brand green */
+.header{background:var(--leaf);padding:32px 36px;position:relative}
+.header::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.08)'/%3E%3C/svg%3E") repeat}
+.h-top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.h-logo{font-size:24px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.h-badge{background:rgba(255,255,255,0.2);backdrop-filter:blur(4px);border-radius:20px;padding:5px 14px;font-size:11px;color:#fff;font-weight:500}
+.h-hero{position:relative;z-index:1;margin-top:28px}
+.h-hero h1{font-size:36px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-1px;margin-bottom:8px}
+.h-hero h1 span{display:block;font-weight:300;font-size:20px;letter-spacing:0;margin-top:4px;opacity:0.85}
+.h-nav{display:flex;gap:6px;margin-top:20px;flex-wrap:wrap}
+.h-nav a{background:rgba(255,255,255,0.15);backdrop-filter:blur(4px);border-radius:16px;padding:6px 14px;font-size:11px;color:#fff;text-decoration:none;font-weight:500}
+
+/* Featured */
+.featured{padding:36px 36px;border-bottom:1px solid #eee}
+.f-flag{display:inline-flex;align-items:center;gap:6px;background:var(--mint);color:var(--leaf-dark);font-size:10px;font-weight:700;padding:4px 12px;border-radius:4px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.f-flag::before{content:'';width:6px;height:6px;background:var(--leaf);border-radius:50%}
+.featured h2{font-size:28px;font-weight:700;line-height:1.2;letter-spacing:-0.5px;margin-bottom:8px}
+.featured h2 span{color:var(--leaf)}
+.f-meta{font-size:12px;color:var(--gray);margin-bottom:16px}
+.f-meta b{color:var(--dark);font-weight:600}
+.f-img{width:100%;height:200px;background:linear-gradient(135deg,var(--mint),var(--lime));border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-size:60px}
+.featured p{font-size:14px;line-height:1.8;color:var(--gray)}
+.f-cta{display:inline-flex;align-items:center;gap:6px;margin-top:16px;background:var(--leaf);color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:600}
+
+/* Cards */
+.cards{padding:24px 36px;display:grid;grid-template-columns:1fr 1fr;gap:16px;border-bottom:1px solid #eee}
+.card{background:var(--light-gray);border-radius:12px;padding:20px;transition:transform 0.2s}
+.c-cat{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;padding:3px 8px;border-radius:3px}
+.card:nth-child(1) .c-cat{color:var(--leaf-dark);background:var(--mint)}
+.card:nth-child(2) .c-cat{color:#7b5ea7;background:#f0ebf7}
+.card:nth-child(3) .c-cat{color:#c76f30;background:#fef0e6}
+.card:nth-child(4) .c-cat{color:#2e7d9b;background:#e3f2fd}
+.card h3{font-size:16px;font-weight:700;line-height:1.3;margin-bottom:6px;letter-spacing:-0.3px}
+.card p{font-size:12px;line-height:1.6;color:var(--gray)}
+.card .c-auth{font-size:10px;color:var(--leaf);margin-top:8px;font-weight:600}
+
+/* Impact Banner */
+.impact{margin:0 36px 0;background:var(--forest);border-radius:12px;padding:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
+.impact-stat{color:#fff}
+.impact-num{font-size:28px;font-weight:800;color:var(--leaf);letter-spacing:-1px}
+.impact-label{font-size:10px;color:rgba(255,255,255,0.5);margin-top:2px;letter-spacing:0.5px}
+
+/* List */
+.list-section{padding:28px 36px;border-top:1px solid #eee;margin-top:24px}
+.ls-title{font-size:16px;font-weight:700;margin-bottom:16px;letter-spacing:-0.3px}
+.ls-item{display:flex;gap:12px;padding:12px 0;border-top:1px solid #f0f0f0;align-items:center}
+.ls-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ls-item:nth-child(2) .ls-icon{background:var(--mint)}
+.ls-item:nth-child(3) .ls-icon{background:#fef0e6}
+.ls-item:nth-child(4) .ls-icon{background:#f0ebf7}
+.ls-item:nth-child(5) .ls-icon{background:#e3f2fd}
+.ls-body h4{font-size:13px;font-weight:600;margin-bottom:1px}
+.ls-body p{font-size:11px;color:var(--gray)}
+
+/* Footer */
+.footer{background:var(--forest);padding:32px 36px;text-align:center;margin-top:24px}
+.footer h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.footer p{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px}
+.f-social{display:flex;justify-content:center;gap:8px;margin-bottom:20px}
+.f-social a{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:14px}
+.f-copy{font-size:9px;color:rgba(255,255,255,0.2);line-height:2}
+</style>
+</head>
+<body>
+<div class="newsletter">
+  <div class="header">
+    <div class="h-top">
+      <div class="h-logo">VeganFirst</div>
+      <div class="h-badge">March 2026</div>
+    </div>
+    <div class="h-hero">
+      <h1>India's Plant Protein Revolution<span>Exploring the future of food, one story at a time</span></h1>
+    </div>
+    <div class="h-nav">
+      <a href="#">Food</a><a href="#">Beauty</a><a href="#">Lifestyle</a><a href="#">Recipes</a><a href="#">Travel</a><a href="#">Events</a>
+    </div>
+  </div>
+
+  <div class="featured">
+    <div class="f-flag">Cover Story</div>
+    <h2>The Quiet Revolution on India's <span>Plate</span></h2>
+    <div class="f-meta">By <b>Palak Mehta</b> · 5 min read</div>
+    <div class="f-img">🌱</div>
+    <p>From Delhi street stalls to Bengaluru fine dining, plant proteins are going mainstream. With the market projected at ₹8,500 crore by 2028, India leads one of the world's most exciting vegan frontiers. We meet the founders, chefs, and activists driving the shift.</p>
+    <a href="#" class="f-cta">Read Full Story →</a>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="c-cat">Food</div><h3>Mumbai's 12 Best New Vegan Cafés</h3><p>From Bandra to Colaba, discover plant-based destinations reshaping the city.</p><div class="c-auth">Riya Kapoor</div></div>
+    <div class="card"><div class="c-cat">Beauty</div><h3>Vegan Beauty Awards 2026 Winners</h3><p>India's finest cruelty-free skincare, tested and celebrated.</p><div class="c-auth">Priya Sharma</div></div>
+    <div class="card"><div class="c-cat">Nutrition</div><h3>Monsoon Superfoods You're Missing</h3><p>Moringa, water chestnut, turmeric—seasonal guide to powerhouses.</p><div class="c-auth">Dr. Nandita Shah</div></div>
+    <div class="card"><div class="c-cat">Travel</div><h3>Vegan Goa: The Complete Guide</h3><p>Beach shacks, fine dining, and hidden gems for plant-based travelers.</p><div class="c-auth">Anika Patel</div></div>
+  </div>
+
+  <div class="impact">
+    <div class="impact-stat"><div class="impact-num">₹8.5K Cr</div><div class="impact-label">Market by 2028</div></div>
+    <div class="impact-stat"><div class="impact-num">13M+</div><div class="impact-label">Vegans in India</div></div>
+    <div class="impact-stat"><div class="impact-num">340%</div><div class="impact-label">Growth since 2020</div></div>
+  </div>
+
+  <div class="list-section">
+    <div class="ls-title">More This Month</div>
+    <div class="ls-item"><div class="ls-icon">👨‍🍳</div><div class="ls-body"><h4>Ritu Dalmia on Compassion in the Kitchen</h4><p>Arjun Nair · Chef Spotlight</p></div></div>
+    <div class="ls-item"><div class="ls-icon">♻️</div><div class="ls-body"><h4>Your Zero-Waste Kitchen Starts Here</h4><p>Meera Sodha · Sustainability</p></div></div>
+    <div class="ls-item"><div class="ls-icon">🍈</div><div class="ls-body"><h4>The Jackfruit Economy</h4><p>Rohan Desai · Business</p></div></div>
+    <div class="ls-item"><div class="ls-icon">📬</div><div class="ls-body"><h4>Community Letters & Upcoming Events</h4><p>VeganFirst Team</p></div></div>
+  </div>
+
+  <div class="footer">
+    <h3>VeganFirst 💚</h3>
+    <p>India's plant-based movement, delivered monthly</p>
+    <div class="f-social"><a href="#">📷</a><a href="#">▶️</a><a href="#">📘</a><a href="#">🐦</a></div>
+    <div class="f-copy">© 2026 Vegan Passion Pvt. Ltd. · hello@veganfirst.com<br>Unsubscribe · Manage Preferences</div>
+  </div>
+</div>
+</body>
+</html>

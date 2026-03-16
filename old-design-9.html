@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 9 — Grain</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--ink:#1a1a1a;--paper:#f4f0e8;--aged:#e8e0d0;--red:#c0392b;
+--green:#6cbd45;--brown:#6b5b4a;--mid:#8a8070;--rule:#c8c0b0;
+}
+body{background:var(--aged);font-family:'Newsreader',serif;color:var(--ink)}
+.newsletter{max-width:700px;margin:0 auto;background:var(--paper);position:relative}
+.newsletter::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1}
+
+/* Masthead */
+.masthead{padding:32px 40px 16px;text-align:center;border-bottom:3px double var(--ink);position:relative}
+.m-top{display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:9px;color:var(--mid);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.m-title{font-size:48px;font-weight:700;letter-spacing:-1px;line-height:1;margin-bottom:2px}
+.m-title span{color:var(--green)}
+.m-sub{font-size:12px;font-style:italic;color:var(--brown);margin-bottom:12px;font-weight:300}
+.m-rule{display:flex;align-items:center;gap:12px;margin-bottom:0}
+.m-rule::before,.m-rule::after{content:'';flex:1;height:1px;background:var(--ink)}
+.m-rule span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--mid)}
+
+/* Headline Section — Newspaper style */
+.headline-section{padding:24px 40px;border-bottom:2px solid var(--ink)}
+.hl-main{text-align:center;margin-bottom:20px}
+.hl-cat{font-family:'Space Mono',monospace;font-size:9px;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.hl-main h1{font-size:36px;font-weight:700;line-height:1.15;letter-spacing:-0.5px;margin-bottom:6px}
+.hl-main h1 em{font-style:italic;font-weight:400}
+.hl-deck{font-size:16px;font-style:italic;color:var(--brown);font-weight:300;line-height:1.4}
+.hl-meta{font-family:'Space Mono',monospace;font-size:9px;color:var(--mid);text-align:center;margin:12px 0 16px;letter-spacing:0.5px}
+.hl-body{column-count:2;column-gap:28px;column-rule:1px solid var(--rule);font-size:14px;line-height:1.8;color:var(--ink)}
+.hl-body p::first-letter{font-size:48px;float:left;line-height:0.85;margin-right:6px;font-weight:700;color:var(--red)}
+.hl-body p{text-align:justify}
+
+/* Section divider */
+.sec-div{display:flex;align-items:center;gap:12px;padding:8px 40px;border-bottom:1px solid var(--rule)}
+.sec-div::before,.sec-div::after{content:'';flex:1;height:1px;background:var(--rule)}
+.sec-div span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);white-space:nowrap}
+
+/* 3-col articles */
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:2px solid var(--ink)}
+.tc-item{padding:20px;border-right:1px solid var(--rule)}
+.tc-item:last-child{border-right:none}
+.tc-item .hl-cat{margin-bottom:6px;font-size:8px}
+.tc-item h3{font-size:16px;font-weight:600;line-height:1.3;margin-bottom:6px}
+.tc-item p{font-size:11px;line-height:1.65;color:var(--brown);text-align:justify}
+.tc-item .tc-auth{font-family:'Space Mono',monospace;font-size:8px;color:var(--mid);margin-top:6px;letter-spacing:0.5px}
+
+/* Quote Bar */
+.quote-bar{padding:20px 40px;background:var(--ink);text-align:center;border-bottom:2px solid var(--ink)}
+.quote-bar blockquote{font-size:18px;font-style:italic;color:var(--paper);line-height:1.5;font-weight:300}
+.quote-bar cite{display:block;font-family:'Space Mono',monospace;font-size:9px;color:var(--green);margin-top:8px;letter-spacing:2px;text-transform:uppercase;font-style:normal}
+
+/* Lower articles */
+.lower{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule)}
+.low-item{padding:20px 40px}
+.low-item:first-child{border-right:1px solid var(--rule)}
+.low-item .hl-cat{margin-bottom:4px}
+.low-item h3{font-size:18px;font-weight:600;line-height:1.3;margin-bottom:4px}
+.low-item p{font-size:12px;line-height:1.6;color:var(--brown)}
+
+/* Briefs column */
+.briefs{padding:20px 40px;border-bottom:2px solid var(--ink)}
+.briefs-title{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;color:var(--red)}
+.brief-item{padding:10px 0;border-top:1px solid var(--rule);display:flex;gap:12px}
+.brief-num{font-size:20px;font-weight:700;color:var(--rule);min-width:24px;font-family:'Space Mono',monospace}
+.brief-body h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.brief-body p{font-size:11px;color:var(--mid);line-height:1.5}
+
+/* Footer */
+.footer{padding:24px 40px;text-align:center}
+.f-title{font-size:20px;font-weight:700;margin-bottom:2px}
+.f-title span{color:var(--green)}
+.f-sub{font-size:10px;font-style:italic;color:var(--brown);margin-bottom:12px}
+.f-links{margin-bottom:12px}
+.f-links a{font-family:'Space Mono',monospace;font-size:9px;color:var(--mid);text-decoration:none;margin:0 8px;letter-spacing:1px}
+.f-copy{font-family:'Space Mono',monospace;font-size:8px;color:var(--rule);line-height:2}
+</style>
+</head>
+<body>
+<div class="newsletter">
+  <div class="masthead">
+    <div class="m-top"><span>Est. 2015</span><span>Vol. IV · No. 47</span></div>
+    <div class="m-title">Vegan<span>First</span></div>
+    <div class="m-sub">India's Premier Plant-Based Gazette</div>
+    <div class="m-rule"><span>March 2026</span></div>
+  </div>
+
+  <div class="headline-section">
+    <div class="hl-main">
+      <div class="hl-cat">Cover Story</div>
+      <h1>India's Plant Protein <em>Revolution</em></h1>
+      <div class="hl-deck">How a new generation is transforming the subcontinent's relationship with food</div>
+    </div>
+    <div class="hl-meta">BY PALAK MEHTA · PHOTOGRAPHY BY ANKIT SHARMA · 5 MIN READ</div>
+    <div class="hl-body">
+      <p>The landscape of Indian cuisine is undergoing a seismic transformation. From bustling street-food stalls in Delhi to upscale restaurants in Bengaluru, plant-based protein alternatives are no longer niche—they're becoming mainstream. Industry reports suggest the Indian vegan food market will reach ₹8,500 crore by 2028, driven by health-conscious millennials and growing environmental awareness. We explore the pioneers, products, and the cultural shift making India one of the world's most exciting vegan frontiers.</p>
+    </div>
+  </div>
+
+  <div class="sec-div"><span>Features</span></div>
+
+  <div class="three-col">
+    <div class="tc-item">
+      <div class="hl-cat">Food & Dining</div>
+      <h3>Mumbai's Best New Vegan Cafés</h3>
+      <p>Twelve plant-based destinations from Bandra to Colaba redefining the city's culinary landscape this season.</p>
+      <div class="tc-auth">By Riya Kapoor</div>
+    </div>
+    <div class="tc-item">
+      <div class="hl-cat">Chef Spotlight</div>
+      <h3>Ritu Dalmia: Compassion in Kitchen</h3>
+      <p>The celebrated restaurateur shares her journey and why Indian cuisine was always meant to be vegan.</p>
+      <div class="tc-auth">By Arjun Nair</div>
+    </div>
+    <div class="tc-item">
+      <div class="hl-cat">Nutrition</div>
+      <h3>Monsoon Superfoods Guide</h3>
+      <p>Moringa, water chestnut, turmeric root—seasonal powerhouses for every vegan plate this monsoon.</p>
+      <div class="tc-auth">By Dr. Nandita Shah</div>
+    </div>
+  </div>
+
+  <div class="quote-bar">
+    <blockquote>"Veganism is not about giving things up—it's about gaining a whole new perspective on food and our earth."</blockquote>
+    <cite>— Palak Mehta, Founder</cite>
+  </div>
+
+  <div class="lower">
+    <div class="low-item">
+      <div class="hl-cat">Sustainability</div>
+      <h3>The Zero-Waste Kitchen</h3>
+      <p>Composting in small apartments, reducing food waste, and building a circular kitchen. By Meera Sodha.</p>
+    </div>
+    <div class="low-item">
+      <div class="hl-cat">Beauty</div>
+      <h3>Vegan Beauty Awards 2026</h3>
+      <p>Our annual roundup of India's finest cruelty-free skincare and cosmetics. By Priya Sharma.</p>
+    </div>
+  </div>
+
+  <div class="briefs">
+    <div class="briefs-title">In Brief</div>
+    <div class="brief-item"><div class="brief-num">7</div><div class="brief-body"><h4>The Jackfruit Economy</h4><p>From Kerala backyards to European export containers. By Rohan Desai.</p></div></div>
+    <div class="brief-item"><div class="brief-num">8</div><div class="brief-body"><h4>Vegan-Friendly Goa</h4><p>Beach shacks, fine dining, and hidden gems for plant-based travelers.</p></div></div>
+    <div class="brief-item"><div class="brief-num">9</div><div class="brief-body"><h4>Letters & Events</h4><p>Reader stories, upcoming festivals across India, and what's next.</p></div></div>
+  </div>
+
+  <div class="footer">
+    <div class="f-title">Vegan<span>First</span></div>
+    <div class="f-sub">Printed with plant-based inks on recycled paper</div>
+    <div class="f-links"><a href="#">Web</a><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">Contact</a></div>
+    <div class="f-copy">© 2026 Vegan Passion Pvt. Ltd. · hello@veganfirst.com<br>Unsubscribe · Manage Preferences</div>
+  </div>
+</div>
+</body>
+</html>
